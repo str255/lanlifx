@@ -40,6 +40,7 @@ bomMessageHandler_t bomMessages[maxBomMessages] = {
   { light_setColor, "color", set_bom_color, },
   { setLabel, "label", set_bom_label, },
   { light_setPower, "power", set_bom_power, },
+  { setPower, "powerDevice", set_bom_device_power, },
 };
 
 void
@@ -78,4 +79,22 @@ set_bom_power(uint8_t *bom, char *value_option)
 
   light->level = power;
   light->duration = 0;
+}
+
+typedef struct {
+  uint16_t                level;
+} lx_device_power_bom_t;
+
+void
+set_bom_device_power(uint8_t *bom, char *value_option)
+{
+  int           power;
+  lx_device_power_bom_t     *device = (lx_device_power_bom_t*)bom;
+
+  printf("setting bom power %s\n", value_option);
+
+  if (strncmp(value_option,"on",2)==0) power = 65535;
+  else power = 0;
+
+  device->level = power;
 }
