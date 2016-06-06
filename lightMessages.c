@@ -47,6 +47,7 @@ deviceMessage_t lightMessages[maxDeviceMessages] = {
 };
 
 
+#pragma pack(push, 1)
 typedef struct {
   uint16_t      color[4];              // HSBK
   int16_t       reserved;
@@ -54,6 +55,7 @@ typedef struct {
   char          label[32];
   uint64_t      reserved2;
 } lx_light_color_bom_t;
+#pragma pack(pop)
 
 void handle_light_getColor(pdu_header_t header, uint8_t *bom, char *ip, int device_no){}
 void handle_light_setColor(pdu_header_t header, uint8_t *bom, char *ip, int device_no){}
@@ -67,10 +69,12 @@ void handle_light_stateColor(pdu_header_t header, uint8_t *bom, char *ip, int de
 }
 
 
+#pragma pack(push, 1)
 typedef struct {
   uint16_t                level;
   uint32_t                duration;  
 } lx_light_power_bom_t;
+#pragma pack(pop)
 
 void handle_light_getPower(pdu_header_t header, uint8_t *bom, char *ip, int device_no){}
 void handle_light_setPower(pdu_header_t header, uint8_t *bom, char *ip, int device_no){}
