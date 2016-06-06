@@ -25,7 +25,7 @@ typedef struct {
   void                (*handler)(uint8_t *bom, char *value_option);
 } bomMessageHandler_t;
 
-enum { maxBomMessages = 3
+enum { maxBomMessages = 4
 };
 
 void set_bom_color(uint8_t *bom, char *value_option);
