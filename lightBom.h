@@ -32,15 +32,20 @@ void set_bom_color(uint8_t *bom, char *value_option);
 void set_bom_label(uint8_t *bom, char *value_option);
 void set_bom_power(uint8_t *bom, char *value_option);
 
+#pragma pack(push, 1)
 typedef struct {
   uint8_t       reserved;
   uint16_t      color[4];              // HSBK
   uint32_t      duration;
 } lx_light_set_color_bom_t;
+#pragma pack(pop)
 
+#pragma pack(push, 1)
 typedef struct {
   uint16_t      level;           
   uint32_t      duration;
 } lx_light_set_power_bom_t;
+#pragma pack(pop)
+
 
 #endif
