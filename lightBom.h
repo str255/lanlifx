@@ -31,6 +31,8 @@ enum { maxBomMessages = 4
 void set_bom_color(uint8_t *bom, char *value_option);
 void set_bom_label(uint8_t *bom, char *value_option);
 void set_bom_power(uint8_t *bom, char *value_option);
+void set_bom_device_power(uint8_t *bom, char *value_option);
+
 
 #pragma pack(push, 1)
 typedef struct {
